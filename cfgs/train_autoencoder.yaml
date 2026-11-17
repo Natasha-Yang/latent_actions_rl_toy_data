@@ -1,0 +1,19 @@
+model: SparseAutoencoder            # class name in model/autoencoder.py
+model_kwargs: {}              # extra constructor args, e.g. {out_dim: 2}; action_dim is set from the data
+num_epochs: 100
+lr: 0.005
+batch_size: 256
+val_frac: 0.2                 # fraction of episodes held out for validation
+kl_weight: 0.01               # VariationalAutoencoder only: weight of KL / action_dim; 1.0 -> posterior collapse
+l1_weight: 0.3                # SparseAutoencoder only: weight of L1 norm of the latent code / action_dim; >=1 kills most latents
+seed: 0
+checkpoint_dir: checkpoints/
+dataset: data/demos.npz
+tasks:                        # 1 task -> single-task AE; more -> one multitask AE on all of them
+  - o
+  - 8
+  - s
+wandb:
+  project: latent-actions
+  entity: null
+  mode: online                # online / offline / disabled

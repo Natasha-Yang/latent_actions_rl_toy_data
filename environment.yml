@@ -1,0 +1,21 @@
+# conda env create -f environment.yml && conda activate snake
+name: snake
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - matplotlib
+  - pillow
+  - pyyaml
+  - wandb
+  - imageio
+  - imageio-ffmpeg
+  - pytest
+  - pip
+  - pip:
+      # CUDA 12.8 build, required for RTX 50-series (Blackwell) GPUs
+      # --index-url (not --extra-index-url): otherwise pip picks the newer PyPI build (CUDA 13),
+      # which needs a newer driver than 570.x
+      - --index-url https://download.pytorch.org/whl/cu128
+      - torch>=2.7
