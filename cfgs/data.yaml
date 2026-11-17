@@ -1,0 +1,11 @@
+tasks:
+  - o
+  - s
+  - 8
+
+scale:
+  mode: random_uniform
+  min: 0.5
+  max: 5
+
+demos_per_task: 50
